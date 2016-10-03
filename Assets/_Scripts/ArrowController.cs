@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class ArrowController : MonoBehaviour
 {
-    [SerializeField]
+
     private int _speed;
+    private int _drift;
     private Transform _transform;
+
     public int Speed
     {
         get
@@ -17,48 +20,75 @@ public class ArrowController : MonoBehaviour
             this._speed = value;
         }
     }
-    // Use this for initialization
+
+    public int Drift
+    {
+        get
+        {
+            return this._drift;
+        }
+        set
+        {
+            this._drift = value;
+        }
+    }
+
+    //private AudioSource[] Sounds;
+    //private AudioSource _pop;
+    //private AudioSource _bow;
     void Start()
     {
         this._transform = this.GetComponent<Transform>();
-        this._speed = 8;
-
+        this._reset();
+        //this.Sounds = this.GetComponents<AudioSource>();
+        //this._bow = this.Sounds[1];
+        //this._pop = this.Sounds[1];
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         this._move();
-        this._checkbounds();
-
+        this._checkBounds();
     }
 
     private void _move()
     {
         Vector2 newPosition = this._transform.position;
-        newPosition.y -= this._speed;
+
+        newPosition.y -= this.Speed;
+        newPosition.x += this.Drift;
+
         this._transform.position = newPosition;
     }
 
-    private void _checkbounds()
+
+    private void _checkBounds()
     {
-        if (this._transform.position.y <= 224f)
+        if (this._transform.position.y <= -300f)
         {
             this._reset();
         }
     }
 
+
     private void _reset()
     {
-        this._transform.position = new Vector2(Random.Range(-224f, 224f), 434f);
+        this.Speed = Random.Range(4, 8);
+        this.Drift = Random.Range(-2, 2);
+        this._transform.position = new Vector2(Random.Range(-222f, 222f), 300f);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Island"))
+        Debug.Log("Hit");
+    }
+        
+        /* if (other.gameObject.CompareTag("Balloon"))
         {
 
-            Debug.Log("Hit2");
+            this._pop.Play();
+
         }
-    }
+    }*/
 }

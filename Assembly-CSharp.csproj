@@ -45,10 +45,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\_Scripts\AirFillCOntroller.cs" />
+     <Compile Include="Assets\_Scripts\AirFillController.cs" />
      <Compile Include="Assets\_Scripts\ArrowController.cs" />
      <Compile Include="Assets\_Scripts\BackgroundController.cs" />
      <Compile Include="Assets\_Scripts\BalloonController.cs" />
+     <Compile Include="Assets\_Scripts\GameController.cs" />
+     <Compile Include="Assets\_Scripts\MenuController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

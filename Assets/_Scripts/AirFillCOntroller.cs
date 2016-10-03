@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AirFillCOntroller : MonoBehaviour {
+public class AirFillController : MonoBehaviour {
 
     [SerializeField]
     private int _speed;
@@ -21,7 +21,7 @@ public class AirFillCOntroller : MonoBehaviour {
     void Start()
     {
         this._transform = this.GetComponent<Transform>();
-        this._speed = 5;
+        this._reset();
 
     }
 
@@ -42,7 +42,7 @@ public class AirFillCOntroller : MonoBehaviour {
 
     private void _checkbounds()
     {
-        if (this._transform.position.y <= 205f)
+        if (this._transform.position.y <= -280f)
         {
             this._reset();
         }
@@ -50,6 +50,7 @@ public class AirFillCOntroller : MonoBehaviour {
 
     private void _reset()
     {
-        this._transform.position = new Vector2(Random.Range(-205f,205f), 330f);
+        this._speed = 5;
+        this._transform.position = new Vector2(Random.Range(-282f,282f), 280f);
     }
 }
