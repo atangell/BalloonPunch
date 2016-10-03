@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\_Scripts\AirFillCOntroller.cs" />
+     <Compile Include="Assets\_Scripts\ArrowController.cs" />
      <Compile Include="Assets\_Scripts\BackgroundController.cs" />
      <Compile Include="Assets\_Scripts\BalloonController.cs" />
  <Reference Include="UnityEngine.UI">
